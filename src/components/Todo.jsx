@@ -20,16 +20,16 @@ class Todo extends Component {
 
     const title = this.refs.title.value;
 
-    this.props.onEdit(this.props.id, title);
+    this.props.onEdit({ id: this.props.id, title });
     this.setState({ editing: false });
   };
 
   handleDelete = () => {
-    this.props.onDelete(this.props.id);
+    this.props.onDelete({ id: this.props.id });
   };
 
   handleToggle = () => {
-    this.props.onToggle(this.props.id);
+    this.props.onToggle({ id: this.props.id });
   };
 
   handleEdit = () => {

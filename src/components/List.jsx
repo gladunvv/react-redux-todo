@@ -2,10 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-const List = ({ todos = [], onDelete, onToggle, onEdit }) => {
-  todos.map((todo) => {
-    console.log(todo.id)
-  })
+const List = ({ todos = [], editTodo, deleteTodo, toggleTodo }) => {
   return (
     <div>
       <section className="todo-list">
@@ -15,9 +12,9 @@ const List = ({ todos = [], onDelete, onToggle, onEdit }) => {
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
-            onDelete={onDelete}
-            onToggle={onToggle}
-            onEdit={onEdit}
+            onDelete={deleteTodo}
+            onToggle={toggleTodo}
+            onEdit={editTodo}
           />
         ))}
       </section>

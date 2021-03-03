@@ -15,7 +15,7 @@ class Form extends Component {
     const title = this.state.title;
 
     if (title) {
-      this.props.onAdd(title);
+      this.props.addTodo({ title });
       this.setState({ title: '' });
     }
   };
