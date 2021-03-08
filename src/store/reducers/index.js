@@ -1,11 +1,13 @@
 import { createStore } from 'redux';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, EDIT_TODO } from '../actionTypes';
 
 const initialState = { todos: [] };
 
 export default createStore((state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return {
+        ...state,
         todos: [
           ...state.todos,
           {
@@ -15,20 +17,23 @@ export default createStore((state = initialState, action) => {
           },
         ],
       };
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return {
+        ...state,
         todos: state.todos.map((todo) =>
           todo.id === action.payload.id
             ? { ...todo, completed: !todo.completed }
             : todo,
         ),
       };
-    case 'DELETE_TODO':
+    case DELETE_TODO:
       return {
+        ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload.id),
       };
-    case 'EDIT_TODO':
+    case EDIT_TODO:
       return {
+        ...state,
         todos: state.todos.map((todo) =>
           todo.id === action.payload.id
             ? { ...todo, title: action.payload.title }

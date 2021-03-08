@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteTodo, toggleTodo, editTodo } from '../actions';
+import { deleteTodo, toggleTodo, editTodo } from '../store/actions';
 import List from '../components/List';
 
 const mapStateToProps = (state) => {
